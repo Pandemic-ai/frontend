@@ -4,17 +4,51 @@
   transform: translate(-50%, -50%);
   position: absolute;
   max-width: 540px;
+  overflow-y: scroll;
 }
 .box {
   box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.9);
-  padding: 50px;
+  padding: 20px;
+  border-radius: 8px;
+  height: 88vh;
+}
+
+.box11 {
+  box-shadow: 6px 0px 50px -7px rgb(225, 225, 225, 0.9);
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.box111 {
+  -webkit-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.6);
+  -moz-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.6);
+  box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.6);
+  background: white;
+  padding: 20px;
   border-radius: 8px;
 }
 .btn-submit {
   padding: 10px;
   text-transform: uppercase;
 }
+.span {
+  margin-left: 30px;
+}
 
-.just-center form{
-    margin-top: 15px;
+.just-center form {
+  margin-top: 15px;
+}
+
+.half {
+  height: 42vh;
+  overflow-y: scroll;
+  margin-bottom: 7px;
+}
+.another-half {
+  height: 45vh;
+  overflow-y: scroll;
+}
+.form-con {
+  margin-top: 15px;
 }

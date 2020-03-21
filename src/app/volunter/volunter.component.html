@@ -1,48 +1,147 @@
-<div class="container-fluid">
-  <div class="container just-center box">
-    <h2 class="text-center">Volunteer</h2>
-    <hr />
-    <form>
-      <div class="form-group ">
-        <input class="form-control" placeholder="Name" formControlName="name" />
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="container box box1">
+        <h2 class="text-center">Volunteer</h2>
+        <hr />
+        <form>
+          <div class="form-group ">
+            <input
+              class="form-control"
+              placeholder="Name"
+              formControlName="name"
+            />
+          </div>
 
-      <div class="form-group ">
-        <select class="form-control" formControlName="country">
-          <option value="India" selected disabled hidden>Country</option>
-          <option value="India">India</option>
-          <option value="Kosovo">kosovo</option>
-        </select>
-      </div>
+          <div class="form-group ">
+            <select class="form-control" formControlName="country">
+              <option value="India" selected disabled hidden>Country</option>
+              <option value="India">India</option>
+              <option value="Kosovo">kosovo</option>
+            </select>
+          </div>
 
-      <div class="form-group ">
-        <input
-          class="form-control"
-          placeholder="City Name"
-          formControlName="city"
-        />
-      </div>
+          <div class="form-group ">
+            <select class="form-control" formControlName="country">
+              <option value="India" selected disabled hidden
+                >Volunteer Type</option
+              >
+              <option value="India">Food</option>
+              <option value="Kosovo">Medicine</option>
+            </select>
+          </div>
 
-      <div class="form-group ">
-        <input
-          class="form-control"
-          placeholder="Address"
-          formControlName="address"
-        />
-      </div>
+          <div class="form-group ">
+            <input
+              class="form-control"
+              placeholder="City Name"
+              formControlName="city"
+            />
+          </div>
 
-      <div class="form-group ">
-        <input
-          class="form-control"
-          type="date"
-          placeholder="Address"
-          formControlName="date"
-        />
-      </div>
+          <div class="form-group ">
+            <input
+              class="form-control"
+              placeholder="Address"
+              formControlName="address"
+            />
+          </div>
 
-      <div class="form-group">
-        <button class="btn btn-success btn-block btn-submit ">Submit</button>
+          <div class="form-group ">
+            <textarea
+              formControlName="info"
+              class="form-control"
+              placeholder="Write about problem"
+              rows="2"
+            ></textarea>
+          </div>
+
+          <div class="form-group ">
+            <input
+              class="form-control"
+              type="date"
+              placeholder="Address"
+              formControlName="date"
+            />
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success btn-block btn-submit ">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
+    <div class="col-md-6">
+      <div class="half box111">
+        <div class="box11">
+          <h5>Egzontina Krasniqi</h5>
+          <h6>Country: Kosovo <span class="span"> Type : Medicine</span></h6>
+        </div>
+
+        <div class="box11">
+          <h5>Rahul Raj</h5>
+          <h6>Country: India <span class="span"> Type : Food</span></h6>
+        </div>
+        <div class="box11">
+          <h5>Egzontina Krasniqi</h5>
+          <h6>Country: Kosovo <span class="span"> Type : Medicine</span></h6>
+        </div>
+
+        <div class="box11">
+          <h5>Rahul Raj</h5>
+          <h6>Country: India <span class="span"> Type : Food</span></h6>
+        </div>
+        <div class="box11">
+          <h5>Egzontina Krasniqi</h5>
+          <h6>Country: Kosovo <span class="span"> Type : Medicine</span></h6>
+        </div>
+
+        <div class="box11">
+          <h5>Rahul Raj</h5>
+          <h6>Country: India <span class="span"> Type : Food</span></h6>
+        </div>
+      </div>
+      <div class="another-half box111">
+        <h3 class="text-center">Search Volunteer</h3>
+
+        <hr />
+        <form class="form-con">
+          <div class="form-group ">
+            <select class="form-control" formControlName="country">
+              <option value="India" selected disabled hidden>Country</option>
+              <option value="India">India</option>
+              <option value="Kosovo">kosovo</option>
+            </select>
+          </div>
+
+          <div class="form-group ">
+            <select class="form-control" formControlName="country">
+              <option value="India" selected disabled hidden
+                >Volunteer Type</option
+              >
+              <option value="India">Food</option>
+              <option value="Kosovo">Medicine</option>
+            </select>
+          </div>
+
+          <div class="form-group ">
+            <input
+              class="form-control"
+              type="date"
+              placeholder="Address"
+              formControlName="date"
+            />
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success btn-block btn-submit ">
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

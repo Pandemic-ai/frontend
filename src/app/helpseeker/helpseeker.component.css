@@ -4,12 +4,19 @@
   transform: translate(-50%, -50%);
   position: absolute;
   max-width: 540px;
+  overflow-y: scroll;
 }
 .box {
   box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.9);
   padding: 50px;
   border-radius: 8px;
 }
+.box1 {
+  margin: 0 auto;
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
 .btn-submit {
   padding: 10px;
   text-transform: uppercase;
