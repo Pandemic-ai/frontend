@@ -1,8 +1,57 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <p>help seeker works!</p>
+  <div class="container just-center box">
+    <h2 class="text-center">Help Seeker</h2>
+    <hr />
+    <form>
+      <div class="form-group ">
+        <input class="form-control" placeholder="Name" formControlName="name" />
+      </div>
 
-        </div>
-    </div>
+      <div class="form-group ">
+        <select class="form-control" formControlName="country">
+          <option value="India" selected disabled hidden>Country</option>
+          <option value="India">India</option>
+          <option value="Kosovo">kosovo</option>
+        </select>
+      </div>
+
+      <div class="form-group ">
+        <input
+          class="form-control"
+          placeholder="City Name"
+          formControlName="city"
+        />
+      </div>
+
+      <div class="form-group ">
+        <input
+          class="form-control"
+          placeholder="Address"
+          formControlName="address"
+        />
+      </div>
+
+      <div class="form-group ">
+        <textarea
+          formControlName="info"
+          class="form-control"
+          placeholder="Write about problem"
+          rows="2"
+        ></textarea>
+      </div>
+
+      <div class="form-group ">
+        <input
+          class="form-control"
+          type="date"
+          placeholder="Address"
+          formControlName="date"
+        />
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success btn-block btn-submit ">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>

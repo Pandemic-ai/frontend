@@ -1,0 +1,20 @@
+.just-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  max-width: 540px;
+}
+.box {
+  box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.9);
+  padding: 50px;
+  border-radius: 8px;
+}
+.btn-submit {
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.just-center form{
+    margin-top: 15px;
+}
