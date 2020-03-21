@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {VolunterService} from './volunter.service';
 import {NgForm} from '@angular/forms';
+import {Volunteer} from './volunter.model';
 
 @Component({
     selector: 'app-volunter',
@@ -11,6 +12,8 @@ export class VolunterComponent implements OnInit {
 
     constructor(public volunterService: VolunterService) {
     }
+
+    searchVolunteerData: any[] = [];
 
     ngOnInit() {
         this.resetForm();
@@ -26,6 +29,14 @@ export class VolunterComponent implements OnInit {
             role: '',
             date: null
         };
+
+        this.volunterService.searchVolunteer = {
+            country: '',
+            city: '',
+            address: '',
+            role: '',
+            date: null
+        };
     }
 
 
@@ -37,9 +48,14 @@ export class VolunterComponent implements OnInit {
     }
 
     onSearchVolunteer(form: NgForm) {
-        this.volunterService.searchVolunteers(form.value).subscribe(res => {
-            console.log('Response', res);
-
-        });
+        // @ts-ignore
+        this.volunterService.searchVolunteers(form.value).subscribe(
+            data => {
+                // @ts-ignore
+                this.searchVolunteerData = data;
+            },
+            err => console.error(err),
+            () => console.log('Error')
+        );
     }
 }

@@ -13,14 +13,14 @@
   height: 88vh;
 }
 
-.box11 {
+.box-v-inside {
   box-shadow: 6px 0px 50px -7px rgb(225, 225, 225, 0.9);
   border-radius: 8px;
   padding: 8px;
   margin-top: 5px;
 }
 
-.box111 {
+.box-v {
   -webkit-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.6);
   -moz-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.6);
   box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.6);

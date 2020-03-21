@@ -1,6 +1,7 @@
 export class SearchVolunteer {
     country: string;
     city: string;
-    date: null;
+    date: string;
     role: string;
+    address: any;
 }

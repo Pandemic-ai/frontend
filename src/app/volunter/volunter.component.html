@@ -7,19 +7,22 @@
             <form #volunteers="ngForm" (submit)="onAddVolunteer(volunteers)">
                 <div class="form-group ">
                     <label>Full name*</label>
-                    <input  class="form-control" name="name" #name="ngModel" [(ngModel)]="volunterService.volunteer.name"/>
+                    <input class="form-control" name="name" #name="ngModel"
+                           [(ngModel)]="volunterService.volunteer.name"/>
                 </div>
 
                 <div class="form-group">
                     <label>Country*</label>
-                    <select name="country" #country="ngModel"[(ngModel)]="volunterService.volunteer.country" class="form-control">
+                    <select name="country" #country="ngModel" [(ngModel)]="volunterService.volunteer.country"
+                            class="form-control">
                         <option value="Afghanistan">Afghanistan</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>City*</label>
-                    <select name="city" placeholder="Namesss"  #city="ngModel" [(ngModel)]="volunterService.volunteer.city" class="form-control">
+                    <select name="city" placeholder="Namesss" #city="ngModel"
+                            [(ngModel)]="volunterService.volunteer.city" class="form-control">
                         <option value="Badakhshan">Badakhshan</option>
                     </select>
                 </div>
@@ -27,7 +30,8 @@
 
                 <div class="form-group">
                     <label>Volunteer type*</label>
-                    <select name="role" id="role" #role="ngModel" [(ngModel)]="volunterService.volunteer.role" class="form-control">
+                    <select name="role" id="role" #role="ngModel" [(ngModel)]="volunterService.volunteer.role"
+                            class="form-control">
                         <option value="Food">Food</option>
                         <option value="Medicine">Medicine</option>
                     </select>
@@ -36,16 +40,19 @@
 
                 <div class="form-group ">
                     <label>Address*</label>
-                    <input class="form-control" placeholder="address" name="address" #address="ngModel" [(ngModel)]="volunterService.volunteer.address"/>
+                    <input class="form-control" placeholder="address" name="address" #address="ngModel"
+                           [(ngModel)]="volunterService.volunteer.address"/>
                 </div>
 
 
                 <div class="form-group ">
-                     <textarea name="info" #name="ngModel" [(ngModel)]="volunterService.volunteer.info" class="form-control" placeholder="Write about problem" rows="2"></textarea>
+                    <textarea name="info" #name="ngModel" [(ngModel)]="volunterService.volunteer.info"
+                              class="form-control" placeholder="Write about problem" rows="2"></textarea>
                 </div>
 
                 <div class="form-group ">
-                    <input type="date" class="form-control" placeholder="date" name="date" #date="ngModel" [(ngModel)]="volunterService.volunteer.date"/>
+                    <input type="date" class="form-control" placeholder="date" name="date" #date="ngModel"
+                           [(ngModel)]="volunterService.volunteer.date"/>
                 </div>
 
                 <div class="form-group">
@@ -58,79 +65,61 @@
         </div>
 
 
-
         <div class="col-md-8">
 
             <h2>Search for a Volunteer</h2>
             <p>Find someone to help you!</p>
 
-                <hr/>
-                <form #searchVolunteer="ngForm" (submit)="onSearchVolunteer(searchVolunteer)">
-                    <div class="form-group">
-                        <label>Country*</label>
-                        <select name="country" #country="ngModel"[(ngModel)]="volunterService.searchVolunteer.country" class="form-control">
-                            <option value="Afghanistan">Afghanistan</option>
-                        </select>
-                    </div>
+            <hr/>
+            <form #searchVolunteer="ngForm" (submit)="onSearchVolunteer(searchVolunteer)">
+                <div class="form-group">
+                    <label>Country*</label>
+                    <select name="country" #country="ngModel" [(ngModel)]="volunterService.searchVolunteer.country"
+                            class="form-control">
+                        <option value="Afghanistan">Afghanistan</option>
+                    </select>
+                </div>
 
-                    <div class="form-group">
-                        <label>City*</label>
-                        <select name="city"  #city="ngModel" [(ngModel)]="volunterService.searchVolunteer.city" class="form-control">
-                            <option value="Badakhshan">Badakhshan</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label>City*</label>
+                    <select name="city" #city="ngModel" [(ngModel)]="volunterService.searchVolunteer.city"
+                            class="form-control">
+                        <option value="Badakhshan">Badakhshan</option>
+                    </select>
+                </div>
 
 
-                    <div class="form-group">
-                        <label>Volunteer type*</label>
-                        <select name="role"  #role="ngModel" [(ngModel)]="volunterService.searchVolunteer.role" class="form-control">
-                            <option value="Food">Food</option>
-                            <option value="Medicine">Medicine</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label>Volunteer type*</label>
+                    <select name="role" #role="ngModel" [(ngModel)]="volunterService.searchVolunteer.role"
+                            class="form-control">
+                        <option value="Food">Food</option>
+                        <option value="Medicine">Medicine</option>
+                    </select>
+                </div>
 
-                    <div class="form-group ">
-                        <input type="date" class="form-control" placeholder="date" name="date" #date="ngModel" [(ngModel)]="volunterService.searchVolunteer.date"/>
-                    </div>
+                <div class="form-group ">
+                    <input type="date" class="form-control" placeholder="date" name="date" #date="ngModel"
+                           [(ngModel)]="volunterService.searchVolunteer.date"/>
+                </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-block btn-submit ">
-                            Search
-                        </button>
-                    </div>
-                </form>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block btn-submit ">
+                        Search
+                    </button>
+                </div>
+            </form>
 
+            <div class="half box-v">
+                <div class="box-v-inside"  *ngFor="let item of searchVolunteerData; ">
+                    <h5>{{ item.name}}</h5>
+                    <h6>Country: {{ item.city }}   <input type="button btn-primary" value="Contact"> </h6>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
 
 
-<!--<div class="half box111">-->
-    <!--<div class="box11">-->
-        <!--<h5>Egzontina Krasniqi</h5>-->
-        <!--<h6>Country: Kosovo <span class="span"> Type : Medicine</span></h6>-->
-    <!--</div>-->
 
-    <!--<div class="box11">-->
-        <!--<h5>Rahul Raj</h5>-->
-        <!--<h6>Country: India <span class="span"> Type : Food</span></h6>-->
-    <!--</div>-->
-    <!--<div class="box11">-->
-        <!--<h5>Egzontina Krasniqi</h5>-->
-        <!--<h6>Country: Kosovo <span class="span"> Type : Medicine</span></h6>-->
-    <!--</div>-->
-
-    <!--<div class="box11">-->
-        <!--<h5>Rahul Raj</h5>-->
-        <!--<h6>Country: India <span class="span"> Type : Food</span></h6>-->
-    <!--</div>-->
-    <!--<div class="box11">-->
-        <!--<h5>Egzontina Krasniqi</h5>-->
-        <!--<h6>Country: Kosovo <span class="span"> Type : Medicine</span></h6>-->
-    <!--</div>-->
-
-    <!--<div class="box11">-->
-        <!--<h5>Rahul Raj</h5>-->
-        <!--<h6>Country: India <span class="span"> Type : Food</span></h6>-->
-    <!--</div>-->
-<!--</div>-->
