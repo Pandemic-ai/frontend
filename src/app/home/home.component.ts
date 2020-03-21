@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
-
-    // this.map.fitBounds(poly.getBounds()); //to fit and get bounds
   }
+
 }
