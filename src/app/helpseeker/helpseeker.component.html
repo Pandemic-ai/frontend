@@ -1,65 +1,163 @@
-<!-- <div class="container-fluid">
-  <div class="container just-center box">
-    <h2 class="text-center">Help Seeker</h2>
-    <hr />
-    <form>
-      <div class="form-group ">
-        <input class="form-control" placeholder="Name" formControlName="name" />
-      </div>
+<div class="container mt-5">
+    <div class="row mt-5">
 
-      <div class="form-group ">
-        <input
-          class="form-control"
-          placeholder="Email"
-          formControlName="email"
-        />
-      </div>
+        <div class="container mt-5">
+            <div class=" mb-12">
+                <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target=".bd-example-modal-lg">Ask for help</button>
+            </div>
+            <div class=" mb-12">
+                <h2> Look who's asking help </h2>
+            </div>
 
-      <div class="form-group ">
-        <select class="form-control" formControlName="country">
-          <option value="India" selected disabled hidden>Country</option>
-          <option value="India">India</option>
-          <option value="Kosovo">kosovo</option>
-        </select>
-      </div>
+            <form #searchHelpSeeker="ngForm" (submit)="onSearchHelpSekeer(searchHelpSeeker)">
+                <hr>
+                <div class="form-group">
+                    <label>Country*</label>
+                    <select name="country" #country="ngModel" [(ngModel)]="helpseekerService.searchHelpSeeker.country"
+                            class="form-control">
+                        <option value="" disabled >Select country</option>
+                        <option *ngFor="let countr of countriesList" value="countr.country"> {{countr.country}} </option>
+                    </select>
+                </div>
 
-      <div class="form-group ">
-        <input
-          class="form-control"
-          placeholder="City Name"
-          formControlName="city"
-        />
-      </div>
+                <div class="form-group">
+                    <label>City*</label>
+                    <select name="city" #city="ngModel" [(ngModel)]="helpseekerService.searchHelpSeeker.city"
+                            class="form-control">
+                        <option value="" disabled>Select city</option>
+                        <option *ngFor="let city of citiesList" value="city">{{city}}</option>
+                    </select>
+                </div>
 
-      <div class="form-group ">
-        <input
-          class="form-control"
-          placeholder="Address"
-          formControlName="address"
-        />
-      </div>
 
-      <div class="form-group ">
-        <textarea
-          formControlName="info"
-          class="form-control"
-          placeholder="Write about problem"
-          rows="2"
-        ></textarea>
-      </div>
+                <div class="form-group">
+                    <label>Volunteer type*</label>
+                    <select name="role" #role="ngModel" [(ngModel)]="helpseekerService.searchHelpSeeker.role"
+                            class="form-control">
+                        <option value="" disabled>Select type</option>
 
-      <!-- <div class="form-group ">
-        <input
-          class="form-control"
-          type="date"
-          placeholder="Address"
-          formControlName="date"
-        />
-      </div> -->
-<!-- 
-      <div class="form-group">
-        <button class="btn btn-success btn-block btn-submit ">Submit</button>
-      </div>
-    </form>
-  </div>
-</div> --> -->
+                        <option value="Food">Food</option>
+                        <option value="Medicine">Medicine</option>
+                    </select>
+                </div>
+
+                <div class="form-group ">
+                    <label>Date</label>
+                    <input type="date" class="form-control" placeholder="date" name="date" #date="ngModel"
+                           [(ngModel)]="helpseekerService.searchHelpSeeker.date"/>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-success mt-4 mb-3 col-md-2 btn-block btn-submit ">
+                        Search
+                    </button>
+                </div>
+            </form>
+
+            <div class="half box-v">
+                <p searchVolunteerData> List of volunteers</p>
+                <div class="box-v-inside" *ngFor="let item of searchHelpSekeerData; ">
+                    <input type="button" class="btn btn-primary float-right" value="Contact">
+                    <h5>Name: <b>{{ item.name}} </b></h5>
+                    <h6>Country:  {{ item.country }} {{ item.city }}</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content p-3">
+
+            <div class="col-md-12 p-3">
+                <h2 class="mt-5">Register as a Volunteer</h2>
+                <p>Help people in need</p>
+                <hr/>
+                <form #helpseeker="ngForm" (submit)="onAddHelpSeeker(helpseeker)">
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label>Full name*</label>
+                                <input class="form-control" placeholder="Full Name" name="name" #name="ngModel"
+                                       [(ngModel)]="helpseekerService.helpSeeker.name"/>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label>Country*</label>
+                                <select name="country" #country="ngModel" [(ngModel)]="helpseekerService.helpSeeker.country"
+                                        class="form-control">
+                                    <option value="" >Select</option>
+                                    <option *ngFor="let countr of countriesList" value="countr.country"> {{countr.country}} </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>City*</label>
+                                <select name="city" #city="ngModel" [(ngModel)]="helpseekerService.helpSeeker.city"
+                                        class="form-control">
+                                    <option value="">Select city</option>
+                                    <option *ngFor="let city of citiesList" value="city">{{city}}</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="form-group ">
+                                <label>Address*</label>
+                                <input class="form-control" placeholder="address" name="address" #address="ngModel"
+                                       [(ngModel)]="helpseekerService.helpSeeker.address"/>
+                            </div>
+
+
+
+
+                            <div class="form-group ">
+                                <label>Date*</label>
+                                <input type="date" class="form-control" placeholder="date" name="date" #date="ngModel"
+                                       [(ngModel)]="helpseekerService.helpSeeker.date"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Volunteer type*</label>
+                                <select name="role" id="role" #role="ngModel" [(ngModel)]="helpseekerService.helpSeeker.role"
+                                        class="form-control">
+                                    <option value="">Choose</option>
+
+                                    <option value="Food">Food</option>
+                                    <option value="Medicine">Medicine</option>
+                                </select>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="col-md-12 row">
+                            <label>Information*</label>
+                            <textarea name="info" #name="ngModel" [(ngModel)]="helpseekerService.helpSeeker.info"
+                                      class="form-control" placeholder="Give more information about yourself" rows="2"></textarea>
+
+                        </div>
+                    <br>
+                    <div class="form-group col-md-4 float-right">
+                        <button type="submit" class="btn btn-success btn-block btn-submit mt-2 mb-4">
+                            Register
+                        </button>
+                    </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
