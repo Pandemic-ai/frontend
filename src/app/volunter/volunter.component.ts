@@ -9,14 +9,16 @@ import {Volunteer} from './volunter.model';
     styleUrls: ['./volunter.component.css']
 })
 export class VolunterComponent implements OnInit {
-
+    countriesList:  any[] = []
+    citiesList = [];
     constructor(public volunterService: VolunterService) {
     }
 
-    searchVolunteerData: any[] = [];
+    searchVolunteerData :any = [];
 
     ngOnInit() {
         this.resetForm();
+        this.getAllCountries();
     }
 
     resetForm(form?: NgForm) {
@@ -46,6 +48,30 @@ export class VolunterComponent implements OnInit {
 
         });
     }
+
+
+    getAllCountries() {
+        this.volunterService.getCountries().subscribe(res => {
+            // if(res.hasOwnProperty("countries")) {
+            this.countriesList = res["countries"];
+            for(let countries of res['countries'] ) {
+                for ( let city of countries['states']) {
+                    this.citiesList.push(city);
+                }
+            }
+            console.log('this. cities list' , this.citiesList)
+            // for(let i = 0; i < )
+            console.log('contries ccc' , res);
+            console.log('contries ccc' , res);
+            console.log('contries ccc' , res);
+            console.log('contries ccc' , res);
+            console.log('contries ccc' , res);
+
+            // }
+        })
+    }
+
+   
 
     onSearchVolunteer(form: NgForm) {
         // @ts-ignore
