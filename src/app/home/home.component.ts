@@ -45,11 +45,21 @@ export class HomeComponent implements OnInit {
               '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           }).addTo(map);
 
-          map.addLayer(pointsLayer);
+          // map.addLayer(pointsLayer);
 
-          console.log(data);
+          var greenIcon = L.icon({
+            iconUrl:
+              "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png",
+
+            iconSize: [50, 40], // size of the icon
+
+            iconAnchor: [25, 40] // point of the icon which will correspond to marker's location
+          });
+
           data.forEach(point => {
-            var don = L.marker([point.lat, point.long]);
+            var don = L.marker([point.lat, point.long], { icon: greenIcon });
+            // coordinates.push(don);
+
             don
               .addTo(map)
               .bindPopup(
@@ -66,10 +76,8 @@ export class HomeComponent implements OnInit {
                   point.totalRecovered
               );
 
-            // map.fitBounds(don.getBounds());
-
-            // marker.bindPopup(display_text);
-            // pointsDataMarkers.push(marker);
+            // var group = new L.featureGroup(don);
+            // map.fitBounds(group.getBounds());
           });
         }
       };
